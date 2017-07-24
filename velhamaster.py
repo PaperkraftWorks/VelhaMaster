@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 import pprint
+import os
+from sys import platform
+
+PLATAFORM = True if platform in ("linux", "darwin") else False
 
 
 class VelhaG(object):
@@ -24,10 +28,9 @@ class VelhaG(object):
                     [
                         [3 * 9 * c + (9 * b) + b + 3 * a for b in range(3)],
                      [3 * 9 * c + 9 * b + 2 - b + 3 * a for b in range(3)]]]
-        import ipdb
-        ipdb.set_trace()
 
     def show(self):
+
 
         print("   ", *[str(b + 1) + "  " for b in range(9)])
         print(" ", *['+' for b in range(19)])
@@ -89,6 +92,10 @@ class VelhaG(object):
 
     def jogar(self):
         while True:
+            if PLATAFORM:
+                os.system('clear')
+            else:
+                os.system('cls')
             self.show()
             print("vez do jogador {}".format(self.player))
             linha = int(input("que linha deseja jogar [1-9]"))
