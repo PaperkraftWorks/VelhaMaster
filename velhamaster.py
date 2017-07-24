@@ -107,7 +107,8 @@ class VelhaG(object):
                 self.trocaplay()
 
 
-player = input("quem deve ser o primeiro a jogar? [X-O] ")
+player = (input("quem deve ser o primeiro a jogar? [X-O] ")).upper()
+
 while player != ("X" or "O"):
     print("jogador invalido")
     player = input("quem deve ser o primeiro a jogar? [X-O] ")
